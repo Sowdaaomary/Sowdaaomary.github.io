@@ -13,8 +13,6 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-
     <style>
         /* RESET */
         * {
@@ -35,41 +33,42 @@
             padding: 120px 8%;
         }
 
+        /* PAGE TITLE */
         .main-title {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: 90px;
         }
 
         .main-title h1 {
             font-size: 4rem;
             font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
 
         .main-title p {
-            color: #E4E4E2;
-            font-size: 1.1rem;
-            max-width: 650px;
+            max-width: 700px;
             margin: auto;
-            line-height: 1.7;
+            line-height: 1.8;
+            color: #E4E4E2;
+            font-size: 1.05rem;
         }
 
+        /* SECTION */
         .project-section {
-            margin-bottom: 100px;
+            margin-bottom: 110px;
         }
 
         .section-heading {
             display: flex;
             align-items: center;
             gap: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
         }
 
         .section-heading h2 {
-            font-size: 2.2rem;
-            font-family: 'Poppins', sans-serif;
+            font-size: 2.3rem;
             white-space: nowrap;
+            font-family: 'Poppins', sans-serif;
         }
 
         .section-line {
@@ -78,27 +77,33 @@
             background: rgba(255, 255, 255, 0.25);
         }
 
+        /* GRID */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 35px;
         }
 
+        /* CARD */
         .project-card {
-            position: relative;
             overflow: hidden;
             border-radius: 28px;
+
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(18px);
+
             border: 1px solid rgba(255, 255, 255, 0.15);
-            transition: 0.4s ease;
+
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+
+            transition: 0.4s ease;
         }
 
         .project-card:hover {
-            transform: translateY(-10px) scale(1.01);
+            transform: translateY(-10px);
         }
 
+        /* MEDIA */
         .project-media {
             width: 100%;
             height: 260px;
@@ -110,8 +115,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: 0.5s ease;
         }
 
+        .project-card:hover video,
+        .project-card:hover img {
+            transform: scale(1.03);
+        }
+
+        /* CONTENT */
         .project-content {
             padding: 25px;
         }
@@ -125,30 +137,92 @@
         .project-content p {
             color: #E4E4E2;
             line-height: 1.7;
-            font-size: 0.96rem;
+            font-size: 0.95rem;
         }
 
-        .coming-soon {
-            height: 260px;
+        /* =========================
+        PPT SECTION
+        ========================= */
+
+        .ppt-section .projects-grid {
+            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+            gap: 40px;
+        }
+
+        .ppt-section .project-card {
+            padding: 28px;
+        }
+
+        .ppt-section .project-media {
+            width: 100%;
+            height: 500px;
+
+            overflow: hidden;
+            border-radius: 24px;
+
+            background: rgba(0, 0, 0, 0.35);
+
             display: flex;
             justify-content: center;
             align-items: center;
-            background: rgba(255, 255, 255, 0.06);
-            color: #E4E4E2;
-            font-size: 1rem;
-            letter-spacing: 2px;
         }
 
+        .ppt-section .project-media video {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            border-radius: 24px;
+        }
+
+        /* =========================
+        LOGO SECTION
+        ========================= */
+
+        .logo-section .project-media {
+            height: 260px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 25px;
+
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .logo-section .project-media img {
+            width: 220px;
+            height: 220px;
+
+            object-fit: contain;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.04);
+
+            padding: 18px;
+        }
+
+        /* BUTTON */
         .back-btn {
             display: inline-block;
             margin-top: 20px;
+
             padding: 14px 28px;
+
             border-radius: 50px;
+
             text-decoration: none;
             color: white;
+
             background: rgba(255, 255, 255, 0.12);
+
             border: 1px solid rgba(255, 255, 255, 0.15);
+
             backdrop-filter: blur(10px);
+
             transition: 0.3s ease;
         }
 
@@ -157,6 +231,7 @@
             transform: translateY(-3px);
         }
 
+        /* MOBILE */
         @media (max-width: 768px) {
 
             .projects-page {
@@ -171,8 +246,36 @@
                 font-size: 1.7rem;
             }
 
-            .project-media {
-                height: 220px;
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ppt-section .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ppt-section .project-media {
+                height: 380px;
+            }
+
+            .logo-section .project-media img {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .ppt-section .project-media {
+                height: 300px;
+            }
+
+            .ppt-section .project-card {
+                padding: 20px;
+            }
+
+            .main-title h1 {
+                font-size: 2.3rem;
             }
         }
     </style>
@@ -182,12 +285,13 @@
 
     <section class="projects-page">
 
-        <!-- PAGE TITLE -->
+        <!-- TITLE -->
         <div class="main-title">
             <h1>My Creative Work</h1>
+
             <p>
                 A collection of web designs, branding projects, presentations,
-                application concepts, and creative visual work crafted with elegance and creativity.
+                and creative visual work crafted with elegance and creativity.
             </p>
         </div>
 
@@ -201,10 +305,9 @@
 
             <div class="projects-grid">
 
-                <!-- PROJECT 1 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="Projects/TuckinPosto.mp4" autoplay muted loop></video>
+                        <video src="TuckinPosto.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -215,10 +318,9 @@
                     </div>
                 </div>
 
-                <!-- PROJECT 2 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="Projects/SomaFoodDistributors.mp4" autoplay muted loop></video>
+                        <video src="SomaFoodDistributors.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -229,10 +331,9 @@
                     </div>
                 </div>
 
-                <!-- PROJECT 3 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="Projects/sweettoothboutique.mp4" autoplay muted loop></video>
+                        <video src="sweettoothboutique.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -243,10 +344,9 @@
                     </div>
                 </div>
 
-                <!-- PROJECT 4 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="Projects/AlbarakaCosmetics.mp4" autoplay muted loop></video>
+                        <video src="AlbarakaCosmetics.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -269,26 +369,10 @@
                 <div class="section-line"></div>
             </div>
 
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <div class="coming-soon">
-                        APP PREVIEW
-                    </div>
-
-                    <div class="project-content">
-                        <h3>Skinfluncer</h3>
-                        <p>
-                            AI-powered skincare and beauty recommendation application.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
         </div>
         -->
 
-        <!-- FIGMA DESIGNS -->
+        <!-- FIGMA -->
         <!--
         <div class="project-section">
 
@@ -297,27 +381,11 @@
                 <div class="section-line"></div>
             </div>
 
-            <div class="projects-grid">
-
-                <div class="project-card">
-                    <div class="coming-soon">
-                        FIGMA DESIGN
-                    </div>
-
-                    <div class="project-content">
-                        <h3>UI/UX Concepts</h3>
-                        <p>
-                            Clean and aesthetic interface concepts created in Figma.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
         </div>
         -->
 
         <!-- POWERPOINTS -->
-        <div class="project-section">
+        <div class="project-section ppt-section">
 
             <div class="section-heading">
                 <h2>Presentation Designs</h2>
@@ -326,10 +394,9 @@
 
             <div class="projects-grid">
 
-                <!-- PPT 1 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="PPT/MrPrice.mp4" autoplay muted loop></video>
+                        <video src="MrPrice.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -340,10 +407,9 @@
                     </div>
                 </div>
 
-                <!-- PPT 2 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="PPT/pinkppt.mp4" autoplay muted loop></video>
+                        <video src="pinkppt.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -354,10 +420,9 @@
                     </div>
                 </div>
 
-                <!-- PPT 3 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="PPT/purpleppt.mp4" autoplay muted loop></video>
+                        <video src="purpleppt.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -368,10 +433,9 @@
                     </div>
                 </div>
 
-                <!-- PPT 4 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <video src="PPT/Skinfluencerppt.mp4" autoplay muted loop></video>
+                        <video src="Skinfluencerppt.mp4" autoplay muted loop></video>
                     </div>
 
                     <div class="project-content">
@@ -385,8 +449,8 @@
             </div>
         </div>
 
-        <!-- OTHER DESIGNS -->
-        <div class="project-section">
+        <!-- LOGOS -->
+        <div class="project-section logo-section">
 
             <div class="section-heading">
                 <h2>Other Designs</h2>
@@ -395,10 +459,9 @@
 
             <div class="projects-grid">
 
-                <!-- LOGO 1 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <img src="OtherDesigns/VigilanteLogo.png" alt="Logo Design">
+                        <img src="VigilanteLogo.png" alt="Logo Design">
                     </div>
 
                     <div class="project-content">
@@ -409,10 +472,9 @@
                     </div>
                 </div>
 
-                <!-- LOGO 2 -->
                 <div class="project-card">
                     <div class="project-media">
-                        <img src="OtherDesigns/skinfluencerLogi.png" alt="Logo Design">
+                        <img src="skinfluencerLogi.png" alt="Logo Design">
                     </div>
 
                     <div class="project-content">
